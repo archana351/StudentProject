@@ -36,7 +36,7 @@ function StudentEdit() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`https://studentproject-backend.onrender.com/${id}`, student)
+    axios.put(`https://studentproject-backend.onrender.com/api/students/${id}`, student)
       .then(() => {
         alert('Student updated successfully!');
         navigate('/students');
