@@ -11,7 +11,7 @@ function StudentList() {
   }, []);
 
   const fetchStudents = () => {
-    axios.get('http://localhost:5002/api/students')
+    axios.get('https://studentproject-backend.onrender.com')
       .then(response => {
         setStudents(response.data);
       })
@@ -22,7 +22,7 @@ function StudentList() {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this student?')) {
-      axios.delete(`http://localhost:5002/api/students/${id}`)
+      axios.delete(`https://studentproject-backend.onrender.com/${id}`)
         .then(() => {
           alert('Student deleted successfully!');
           fetchStudents(); // Refresh after deletion
