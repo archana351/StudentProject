@@ -27,7 +27,7 @@ function AddStudent() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting student data:', student);
-    axios.post('https://studentproject-backend.onrender.com', student)
+    axios.post('https://studentproject-backend.onrender.com/api/students', student)
       .then((response) => {
         console.log('Student added:', response.data);
         alert("Student Added Successfully!");
