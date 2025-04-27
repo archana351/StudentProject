@@ -8,7 +8,14 @@ const app = express();
 const PORT = process.env.PORT || 5002;
 
 // Middleware
-app.use(cors());
+const frontendURL = 'https://studentproject-frontend.onrender.com'; // Local frontend URL (adjust if different)
+
+// Middleware
+app.use(cors({
+  origin: frontendURL,  // Allow only requests from your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Optional, if using cookies or authentication
+}));
 app.use(express.json());
 
 // Connect to MongoDB
