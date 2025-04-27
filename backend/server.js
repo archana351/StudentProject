@@ -7,15 +7,17 @@ require('dotenv').config();  // Load environment variables
 const app = express();
 const PORT = process.env.PORT || 5002;
 
-// Middleware
-const frontendURL = 'https://studentproject-frontend.onrender.com'; // Local frontend URL (adjust if different)
+// Use the frontend URL you provided
+const frontendURL = 'https://studentproject-frontend.onrender.com';  // Frontend URL
 
-// Middleware
+// Middleware for CORS
 app.use(cors({
-  origin: frontendURL,  // Allow only requests from your frontend URL
+  origin: frontendURL,  // Allow only requests from the frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Optional, if using cookies or authentication
+  credentials: true,  // Optional, if using cookies or authentication
 }));
+
+// Middleware to parse JSON bodies
 app.use(express.json());
 
 // Connect to MongoDB
@@ -24,7 +26,7 @@ connectDB();
 // Routes
 app.use('/api/students', studentRoutes);
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
