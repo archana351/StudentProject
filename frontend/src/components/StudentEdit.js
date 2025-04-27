@@ -17,7 +17,7 @@ function StudentEdit() {
   });
 
   useEffect(() => {
-    axios.get(`https://studentproject-backend.onrender.com/${id}`)
+    axios.get(`https://studentproject-backend.onrender.com/api/students/${id}`)
       .then(response => {
         setStudent(response.data);
       })
