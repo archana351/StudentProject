@@ -11,7 +11,7 @@ function StudentList() {
   }, []);
 
   const fetchStudents = () => {
-    axios.get('https://studentproject-backend.onrender.com')
+    axios.get('https://studentproject-backend.onrender.com/api/students')
       .then(response => {
         setStudents(response.data);
       })
